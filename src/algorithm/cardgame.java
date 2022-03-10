@@ -29,5 +29,57 @@ public class cardgame {
 			int tempNum = sc.nextInt();
 			num[tempNum]++;
 	}
+		
+		boolean isFlush = checkFlush(color);
+		int straight = checkStraight(num);
+		int fourCard = checkFourCard(num);
+		int triple = checkTriple(num);
+		int pair = checkPair(num, 1);
+		int max = getMax(num);
+		
+		if(isFlush == true && straight > 0) {
+			System.out.println(900 + straight);
+		}else if(fourCard > 0) {
+			System.out.println(800 + fourCard);
+		}else if(triple >0 && pair > 0)	{
+			System.out.println(700 + triple + 10 + pair);
+		}else if(isFlush == true) {
+			System.out.println(600 + max);
+		}else if(straight > 0) {
+			System.out.println(500 + straight);
+		}else if(triple > 0) {
+			System.out.println(400 + triple);
+		}else if(pair > 0 && checkPair(num, pair+1) > 0) {
+			System.out.println(300 + checkPair(num, pair+1) * 10 + pair);
+		}else if(pair > 0) {
+			System.out.println(200 + pair);
+		}else {
+			System.out.println(100 + max);
+		}
+		
+		public static boolean checkFlush(int[] color) {
+			for (int i = 0; i < color.length; i++) {
+				if(color[i] == 5) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public static int checkStraight(int[] num) {
+			int count = 0;
+			for (int i = 1; i < num.length; i++) {
+				if(num[i] > 0) {
+					count++;
+					if(count == 5) {
+						return i;
+					}
+					else {
+						count = 0;
+					}
+				}
+			}
+			return 0;
+		}
 
 }
