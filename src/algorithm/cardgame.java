@@ -56,6 +56,8 @@ public class cardgame {
 		}else {
 			System.out.println(100 + max);
 		}
+	}
+		
 		
 		public static boolean checkFlush(int[] color) {
 			for (int i = 0; i < color.length; i++) {
@@ -105,7 +107,7 @@ public class cardgame {
 				if (num[i] == 2) {
 					return i;
 				}
-			}x
+			}
 			return 0;
 		}
 		
