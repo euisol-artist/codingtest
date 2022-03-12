@@ -81,5 +81,41 @@ public class cardgame {
 			}
 			return 0;
 		}
+		
+		public static int checkFourCard(int[] num) {
+			for (int i =1; i < num.length; i++) {
+				if(num[i] == 4) {
+					return i;
+				}
+			}
+			return 0;
+		}
+		
+		public static int checkTriple(int[] num) {
+			for (int i =1; i<num.length; i++) {
+				if(num[i] == 3) {
+					return i;
+				}
+			}
+			return 0;
+		}
+		
+		public static int checkPair(int[] num, int start) {
+			for (int i = start; i<num.length; i++) {
+				if (num[i] == 2) {
+					return i;
+				}
+			}x
+			return 0;
+		}
+		
+		public static int getMax(int[] num) {
+			for (int i = num.length-1; i>0; i--) {
+				if(num[i] > 0) {
+					return i;
+				}
+			}
+			return 0;
+		}
 
 }
