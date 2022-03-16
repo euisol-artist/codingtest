@@ -11,7 +11,7 @@ public class cardgame {
 		
 		for (int i=0; i<5; i++) {
 			String temp = sc.next(); //다음행으로
-			char tempColor = temp.charAt(0);
+			char tempColor = temp.charAt(0); //int에서char로형변환
 			switch(tempColor) {
 			case 'R':
 				color[0]++;
@@ -26,7 +26,7 @@ public class cardgame {
 				color[3]++;
 				break;
 		}
-			int tempNum = sc.nextInt();
+			int tempNum = sc.nextInt(); //다음행으로
 			num[tempNum]++;
 	}
 		

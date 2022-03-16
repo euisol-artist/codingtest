@@ -23,7 +23,33 @@ public class bfsdfs {
 			count = 0;
 			
 			for (int i = 0; i < K; i++) {
-				
+				int x = sc.nextInt();
+				int y = sc.nextInt();
+				map[x][y] = 1;
+			}
+			
+			for (int y = 0; y < N; y++) {
+				for (int x = 0; x < M; x++) {
+					if(map[y][x] == 1) {
+						dfs(y, x);
+						count++;
+					}
+				}
+			}
+			System.out.println(count);
+		}
+	}
+	
+	public static void dfs(int y, int x) {
+		map[y][x] = 2;
+		for (int i = 0; i < 4; i++) {
+			int targetY = y + dy[i];
+			int targetX = x + dx[i];
+			
+			if(targetY >= 0 && targetY < N && targetX >= 0 && targetX < M) {
+				if(map[targetY][targetX] == 1) {
+					dfs(targetY, targetX);
+				}
 			}
 		}
 	}
