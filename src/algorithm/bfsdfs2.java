@@ -34,6 +34,29 @@ public class bfsdfs2 {
 			}
 		}
 		
+		queue.add(new Position(0, 0));
+		visit[0][0] = 1;
 		
+		while(queue.isEmpty() == false) {
+			Position current = queue.poll();
+		}
+		
+		
+	}
+}
+
+class Position {
+	int x;
+	int y;
+	int dist;
+	
+	public Position(int y, int x) { 
+		this.y = y;
+		this.x = x;
+	}
+	
+	@Override
+	public String toString() {
+		return "Position [x=" + x + ", y=" + y + ", dist=" + dist + "]";
 	}
 }
