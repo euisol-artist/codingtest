@@ -38,7 +38,12 @@ public class bfsdfs2 {
 		visit[0][0] = 1;
 		
 		while(queue.isEmpty() == false) {
-			Position current = queue.poll();
+			Position current = queue.poll(); //queue에서 꺼냄
+			
+			for(int i=0; i<4; i++) {
+				int targetY = current.y + dy[i];
+				int targetX = current.x + dx[i];
+			}
 		}
 		
 		
