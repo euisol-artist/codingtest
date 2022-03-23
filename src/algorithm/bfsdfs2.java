@@ -1,5 +1,6 @@
 package algorithm;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class bfsdfs2 {
 	static int[] dy = {0,0,-1,1};
 	static int[][] visit;
 	static int distance;
-	static Queue queue;
+	static Queue<Position> queue;
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -43,10 +44,22 @@ public class bfsdfs2 {
 			for(int i=0; i<4; i++) {
 				int targetY = current.y + dy[i];
 				int targetX = current.x + dx[i];
+				
+				if(targetY >= 0 && targetY < N && targetX >= 0 && targetX < M) {
+					if(map[targetY][targetX] == 1) {
+						if(visit[targetY][targetX] == 0) {
+						queue.add(new Position(targetY, targetX));
+						visit[targetY][targetX] = visit[current.y][current.x] + 1;
+					}
+				}
 			}
 		}
+	}
+		for(int i = 0; i < N; i++) {
+			System.out.println(Arrays.toString(visit[i]));
+		}
 		
-		
+		System.out.println(visit[N-1][M-1]);
 	}
 }
 
