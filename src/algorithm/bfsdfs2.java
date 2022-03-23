@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class bfsdfs2 {
 	static int N, M;
-	static int[][] map;
+	static int[][] map; //맵
 	static int[] dx = {-1,1,0,0};
 	static int[] dy = {0,0,-1,1};
-	static int[][] visit;
+	static int[][] visit; //방문 여부
 	static int distance;
 	static Queue<Position> queue;
 	
@@ -39,27 +39,28 @@ public class bfsdfs2 {
 		visit[0][0] = 1;
 		
 		while(queue.isEmpty() == false) {
-			Position current = queue.poll(); //queue에서 꺼냄
+			Position current = queue.poll(); //1. queue에서 꺼냄
 			
-			for(int i=0; i<4; i++) {
+			for(int i=0; i<4; i++) { //2. 연결된 길
 				int targetY = current.y + dy[i];
 				int targetX = current.x + dx[i];
 				
-				if(targetY >= 0 && targetY < N && targetX >= 0 && targetX < M) {
+				if(targetY >= 0 && targetY < N && targetX >= 0 && targetX < M) { //3. 갈수있는 가
 					if(map[targetY][targetX] == 1) {
 						if(visit[targetY][targetX] == 0) {
-						queue.add(new Position(targetY, targetX));
-						visit[targetY][targetX] = visit[current.y][current.x] + 1;
+						queue.add(new Position(targetY, targetX)); //4. q에 넣는다
+						visit[targetY][targetX] = visit[current.y][current.x] + 1; //5. 방문 체크
+						}
 					}
 				}
 			}
 		}
-	}
+		
 		for(int i = 0; i < N; i++) {
 			System.out.println(Arrays.toString(visit[i]));
 		}
 		
-		System.out.println(visit[N-1][M-1]);
+		System.out.println(visit[N-1][M-1]); //결과 출력
 	}
 }
 
