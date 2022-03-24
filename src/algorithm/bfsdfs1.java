@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.Scanner;
 
-public class bfsdfs {
+public class bfsdfs1 {
 	static int T,N,M,K; //테스트개수, 가로길이, 세로길이, 위치의 개수
 	static int[][] map;
 	static int[] dx = {-1, 1, 0, 0};
